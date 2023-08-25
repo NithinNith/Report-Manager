@@ -1,15 +1,13 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
-import { Report } from '../../../types/report';
-import ReportCard from '../../../components/ReportCard';
 import Loader from '../../../components/Loader';
+import { User } from '../../../types/user';
+import UserCard from '../../../components/UserCard';
 
-const Reports = () => {
+const Users = () => {
     const router = useRouter();
-    const { data: session } = useSession();
-    const [reports, setReports] = useState<Report[]>([]);
+    const [users, setUsers] = useState<User[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
@@ -19,7 +17,7 @@ const Reports = () => {
     const fetchReports = async () => {
         try {
             setIsLoading(true);
-            const response = await fetch(`/api/user/${session?.user?.id}/reports`, {
+            const response = await fetch(`/api/user`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,7 +26,7 @@ const Reports = () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log(data);
-                setReports(data);
+                setUsers(data);
             }
         } catch (error) {
             console.log(error);
@@ -44,11 +42,9 @@ const Reports = () => {
                     <Loader /> :
                     <div className='w-full flex flex-wrap flex-row gap-4'>
                         {
-                            reports.length > 0 ? reports.map((report) =>
-                                <ReportCard key={report.id} report={report} handleEdit={(id) => {
-                                    router.push(`/dashboard/report/${id}/edit`);
-                                }} />
-                            ) : <p>No Reports Found</p>
+                            users.map((user) =>
+                                <UserCard key={user.id} user={user} onClick={() => router.push(`/dashboard/users/${user.id}/reports`)} />
+                            )
                         }
                     </div>
             }
@@ -56,4 +52,4 @@ const Reports = () => {
     );
 }
 
-export default Reports;
+export default Users;

@@ -12,7 +12,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, handleEdit }) => {
     console.log(report);
 
     return (
-        <div className='prompt_card min-w-[20rem]'>
+        <div className='prompt_card'>
             <div className='flex justify-between items-start gap-5'>
                 <div className='flex-1 flex justify-start cursor-pointer items-center gap-3'>
                     <div className='flex flex-col'>

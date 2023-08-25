@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Role } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 const primsa = new PrismaClient();
@@ -29,6 +29,7 @@ export const POST = async (request: any) => {
             email: email,
             name: userName,
             password: hashedPassword,
+            role: Role.USER,
         }
     });
     return NextResponse.json(user, { status: 201 });

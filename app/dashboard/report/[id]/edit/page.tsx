@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import ReportForm from '../../../../../components/Report';
 import { ReportDate } from '../../../../../types/form';
+import Loader from '../../../../../components/Loader';
 
 const page: React.FC<any> = ({ params }: { params: any }) => {
     const router = useRouter();
@@ -81,7 +82,7 @@ const page: React.FC<any> = ({ params }: { params: any }) => {
         <>
             {
                 isLoading ?
-                    <p>Loading...</p>
+                    <Loader />
                     : <ReportForm
                         type={'Edit'}
                         reportDate={{

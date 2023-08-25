@@ -2,6 +2,7 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
+import Loader from '../components/Loader';
 
 const Home = () => {
     const session = useSession();
@@ -20,7 +21,7 @@ const Home = () => {
 
     return (
         <main>
-            <p>Loading...</p>
+            <Loader />
         </main>
     )
 }
