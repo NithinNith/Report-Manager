@@ -8,7 +8,7 @@ import ReportForm from '../../../../../components/Report';
 import { ReportDate } from '../../../../../types/form';
 import Loader from '../../../../../components/Loader';
 
-const page: React.FC<any> = ({ params }: { params: any }) => {
+const Page: React.FC<any> = ({ params }: { params: any }) => {
     const router = useRouter();
     const { data: session } = useSession();
     const [report, setReport] = useState<string>("");
@@ -104,4 +104,4 @@ const page: React.FC<any> = ({ params }: { params: any }) => {
     );
 }
 
-export default page;
+export default Page;

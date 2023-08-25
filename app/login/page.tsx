@@ -2,13 +2,11 @@
 import React, { useState } from 'react'
 import Form from '../../components/Form'
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 
-const page = () => {
+const Page = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const router = useRouter();
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -43,4 +41,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

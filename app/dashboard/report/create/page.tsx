@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
-const page = () => {
+const Page = () => {
     const router = useRouter();
     const { data: session } = useSession();
     const [report, setReport] = useState<string>("");
@@ -65,4 +65,4 @@ const page = () => {
     );
 }
 
-export default page;
+export default Page;

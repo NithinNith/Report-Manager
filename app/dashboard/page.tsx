@@ -7,7 +7,7 @@ import { User } from '../../types/user';
 import Users from './users/page';
 import { Role } from '@prisma/client';
 
-const page = () => {
+const Page = () => {
     const { data: session, status } = useSession();
     const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -53,4 +53,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

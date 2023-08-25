@@ -4,7 +4,7 @@ import Form from '../../components/Form'
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 
-const page = () => {
+const Page = () => {
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -54,4 +54,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

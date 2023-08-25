@@ -14,7 +14,7 @@ const Reports = () => {
 
     useEffect(() => {
         fetchReports();
-    }, []);
+    }, [session]);
 
     const fetchReports = async () => {
         try {
