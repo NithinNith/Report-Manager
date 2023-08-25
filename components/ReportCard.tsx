@@ -26,7 +26,7 @@ const ReportCard: React.FC<ReportCardProps> = ({ report, handleEdit }) => {
                                 {report.toDate}
                             </Moment>
                         </h3>
-                        <p className='font-inter text-sm text-gray-500 mt-4'>
+                        <p className='font-inter text-sm text-gray-500 mt-4 whitespace-pre-wrap'>
                             {report.report}
                         </p>
                         <p className='my-4 font-satoshi text-sm text-gray-700 p-0 m-0'>
