@@ -1,25 +1,23 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
 import { Report } from '../../../types/report';
 import ReportCard from '../../../components/ReportCard';
 import Loader from '../../../components/Loader';
 
-const Reports = () => {
+const Reports: React.FC<{ userId: string }> = ({ userId }) => {
     const router = useRouter();
-    const { data: session } = useSession();
     const [reports, setReports] = useState<Report[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
         fetchReports();
-    }, [session]);
+    }, []);
 
     const fetchReports = async () => {
         try {
             setIsLoading(true);
-            const response = await fetch(`/api/user/${session?.user?.id}/reports`, {
+            const response = await fetch(`/api/user/${userId}/reports`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

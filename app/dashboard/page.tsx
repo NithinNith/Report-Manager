@@ -45,7 +45,7 @@ const Page = () => {
                 isLoading || status == "loading" ? <Loader /> :
                     <div>
                         {
-                            user?.role == Role.ADMIN ? <Users /> : <Reports />
+                            user?.role == Role.ADMIN ? <Users /> : <Reports userId={session?.user?.id!} />
                         }
                     </div>
             }

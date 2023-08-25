@@ -10,11 +10,12 @@ const Home = () => {
 
     useEffect(() => {
         console.log(session);
-
-        if (session.data) {
-            router.push("/dashboard");
-        } else {
+        if (session.status === "loading") {
+            return;
+        } else if (session.status == "unauthenticated") {
             router.push("/login");
+        } else if (session.status == "authenticated") {
+            router.push("/dashboard");
         }
     }, [session]);
 
